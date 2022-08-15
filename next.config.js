@@ -1,7 +1,20 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
 
-module.exports = nextConfig
+module.exports = {
+  reactStrictMode: true,
+  env: {
+    appName: 'mhyeNextJs',
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/login',
+        destination: '/auth/login'
+      },
+      {
+        source: '/register',
+        destination: '/auth/register'
+      }
+    ]
+  }
+}
